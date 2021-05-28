@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block adress %}
+
+{% endblock %}
+
+{% block cleaning %}
+    {% for step in cleaning_list %}
+        <div class="media">
+            <img class="media__photo" src="{{ step.photo.url}}" alt="...">
+            <div class="media-body">
+                <p class="media-body__text">{{ step.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

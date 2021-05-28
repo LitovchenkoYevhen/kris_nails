@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+
+    <main>
+        <div class="carousel slide" id="carouselControls" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for photo in photos_list %}
+                    <div class="carousel-item">
+                        <img src="{{ photo.photo_after.url }}" alt="" class="d-block w-100">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

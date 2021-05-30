@@ -70,6 +70,7 @@ class Visits(models.Model):
     photo_before = models.ImageField(upload_to='photo/%Y/%m/%d', blank=True, verbose_name='Фото до')
     photo_after = models.ImageField(upload_to='photo/%Y/%m/%d', blank=True, verbose_name='Фото после')
 
+
     # def __init__(self):
     #     super().__init__(self)
     #     self.client.number_of_visits += 1
@@ -83,3 +84,10 @@ class Visits(models.Model):
 
     def __str__(self):
         return self.service_name.service_name
+
+
+class Comments(models.Model):
+    work = models.ForeignKey(Visits, on_delete=models.SET_NULL, null=True, verbose_name='Комментарий')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    content = models.TextField(blank=True, verbose_name='Содерджание комментария')
